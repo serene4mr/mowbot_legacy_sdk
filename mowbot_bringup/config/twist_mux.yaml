@@ -7,7 +7,7 @@
           timeout : 0.5
           priority: 10
         external:
-          topic   : cmd_vel #nav2_cmd_vel
+          topic   : cmd_vel_scaled #cmd_vel #nav2_cmd_vel
           timeout : 0.5
           priority: 1
       locks:
