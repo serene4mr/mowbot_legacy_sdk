@@ -16,14 +16,14 @@ class KTServerClientNode(Node):
         self.declare_parameter("robot_serial", "")
         self.declare_parameter("client_id", "")
         self.declare_parameter("client_secret", "")
-        self.declare_parameter("robot_status_report_hz", 1)
+        self.declare_parameter("robot_status_report_hz", 1.0)
         self.declare_parameter("verbose", False)
         
         # Get parameters
         self.robot_serial = self.get_parameter("robot_serial").get_parameter_value().string_value
         self.client_id = self.get_parameter("client_id").get_parameter_value().string_value
         self.client_secret = self.get_parameter("client_secret").get_parameter_value().string_value
-        self.robot_status_report_hz = self.get_parameter("robot_status_report_hz").get_parameter_value().integer_value
+        self.robot_status_report_hz = self.get_parameter("robot_status_report_hz").get_parameter_value().double_value
         self.verbose = self.get_parameter("verbose").get_parameter_value().bool_value
         
         if self.robot_status_report_hz <= 0:
