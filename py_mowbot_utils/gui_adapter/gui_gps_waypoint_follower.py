@@ -7,7 +7,6 @@ from sensor_msgs.msg import NavSatFix
 from geometry_msgs.msg import PoseStamped
 from robot_localization.srv import FromLL
 
-
 class YamlWaypointParser:
     """
     Parse a set of gps waypoints from a yaml file
@@ -105,7 +104,7 @@ class WaypointFollower(Node):
 
     def check_nav_state(self):
         if self.navigator.isTaskComplete():
-            print("wps completed successfully")
+            self.get_logger().info('Waypoint following complete')
             self.stop_wpf()
 
 
