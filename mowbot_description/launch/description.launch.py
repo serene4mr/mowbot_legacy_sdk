@@ -3,7 +3,7 @@
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, LogInfo
 from launch.substitutions import (
-    LaunchConfiguration, Command, PathJoinSubstitution, FindExecutable
+    LaunchConfiguration, Command, PathJoinSubstitution, FindExecutable, TextSubstitution
 )
 from launch_ros.actions import Node
 from launch_ros.parameter_descriptions import ParameterValue
@@ -42,9 +42,11 @@ def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time')
 
     # Dynamic path to Xacro file based on model argument
-    urdf_file = PathJoinSubstitution(
-        [FindPackageShare(package_name), 'urdf', model, '.urdf.xacro']
-    )
+    urdf_file = PathJoinSubstitution([
+        FindPackageShare(package_name),
+        'urdf',
+        [LaunchConfiguration('model'), TextSubstitution(text='.urdf.xacro')]
+    ])
 
     # Info log for clarity
     log_info = LogInfo(
