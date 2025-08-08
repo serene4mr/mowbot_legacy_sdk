@@ -1,6 +1,0 @@
-/**:
-  cmdvel_scaler_node:
-    ros__parameters:
-      left_rate: 1.0
-      right_rate: 1.0
-      wheel_separation: 1.13
