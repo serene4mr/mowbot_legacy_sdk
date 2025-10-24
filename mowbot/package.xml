@@ -24,7 +24,6 @@
   <depend>teleop_twist_joy</depend>
   <depend>twist_mux</depend>
   <depend>imu_filter_madgwick</depend>
-  <depend>foxglove_bridge</depend>
   <depend>robot_localization</depend>
   <depend>joint_state_publisher</depend>
   <depend>joint_state_publisher_gui</depend>
